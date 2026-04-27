@@ -18,9 +18,9 @@ async fn watch_file(fname: &str) {
     let mut old_content = String::new();
     loop {
         if let Ok(contents) = fs::read_to_string(fname) {
-            if contents != old_content {
+            if contents != old_content && !contents.trim().is_empty() {
                 let diff = &contents[old_content.len()..];
-                println!("minimax > {}", diff);
+                println!("minimax > {}", diff.trim_start());
                 old_content = contents;
             }
         }

@@ -24,7 +24,17 @@ async fn api_call(client: &Client, key: &str, msg : &str) -> String {
         .json(&json!({
             "model": MODEL,
             "messages": [
-                {"role": "user", "content": msg}
+                {
+                "role": "system",
+                "content": fs::read_to_string("/home/jwt/Code/council/agents/system.txt")
+                                .expect("Failed to read system file")
+                                .trim()
+                                .to_string()
+                },
+                {
+                "role": "user",
+                "content": msg
+                }
             ]
         }))
         .send()
@@ -43,7 +53,7 @@ async fn main() {
 
     loop {
         if let Ok(contents) = fs::read_to_string(INPUT_FNAME) {
-            if contents == old_content {
+            if contents == old_content || contents.trim().is_empty() {
                 continue;
             }
 
@@ -60,8 +70,6 @@ async fn main() {
                     }
                 }
             }
-
-            println!("{}", full_content);
 
             let mut file = OpenOptions::new()
                 .create(true)
