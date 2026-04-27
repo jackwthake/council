@@ -1,0 +1,11 @@
+#! /usr/bin/sh
+
+# clear context
+echo "" > /tmp/council/minimax.in
+echo "" > /tmp/council/minimax.out
+
+# start agents
+./agents/minimax_agent/target/debug/minimax_agent &
+
+# start main process
+./target/debug/council
