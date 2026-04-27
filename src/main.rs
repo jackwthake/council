@@ -1,10 +1,12 @@
 use std::fs;
 use tokio::io::{self, AsyncBufReadExt, BufReader};
 use tokio::time::{sleep, Duration};
+use std::fs::OpenOptions;
+use std::io::Write;
 
 #[tokio::main]
 async fn main() {
-    let fname = "/tmp/council/test.out";
+    let fname = "/tmp/council/minimax.out";
     
     tokio::select! {
         _ = watch_file(fname) => {},
@@ -18,7 +20,7 @@ async fn watch_file(fname: &str) {
         if let Ok(contents) = fs::read_to_string(fname) {
             if contents != old_content {
                 let diff = &contents[old_content.len()..];
-                println!("tester > {}", diff);
+                println!("minimax > {}", diff);
                 old_content = contents;
             }
         }
@@ -33,6 +35,14 @@ async fn read_keyboard() {
         if line.trim() == "/exit" {
             break;
         }
-        println!("input: {}", line);
+        
+        let mut file = OpenOptions::new()
+            .create(true)
+            .write(true)
+            .append(true)
+            .open("/tmp/council/minimax.in")
+            .unwrap();
+
+        writeln!(file, "{}", line).unwrap();
     }
 }
