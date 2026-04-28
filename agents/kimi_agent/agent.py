@@ -5,7 +5,7 @@ import httpx  # Cleaner async HTTP than requests
 import aiofiles
 
 # Constants
-MODEL = "gemini-3-flash-preview:cloud"
+MODEL = "kimi-k2.6:cloud"
 MASTER_PROMPT_PATH = "/home/jwt/Code/council/agents/system.txt"
 KEY_PATH = "/home/jwt/Code/council/agents/ollama.key"
 

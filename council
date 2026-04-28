@@ -5,11 +5,15 @@ echo "" > /tmp/council/minimax.in
 echo "" > /tmp/council/minimax.out
 echo "" > /tmp/council/gemini.in
 echo "" > /tmp/council/gemini.out
+echo "" > /tmp/council/kimi.in
+echo "" > /tmp/council/kimi.out
+
 
 
 # start agents
 ./agents/minimax_agent/target/debug/minimax_agent &
 python3 ./agents/gemini_flash_agent/agent.py &
+python3 ./agents/kimi_agent/agent.py &
 
 # start main process
 ./target/debug/council

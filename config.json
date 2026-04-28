@@ -11,6 +11,12 @@
       "in_file": "/tmp/council/gemini.in",
       "out_file": "/tmp/council/gemini.out",
       "personal_prompt": "/home/jwt/Code/council/agents/gemini_identity.txt"
+    },
+    {
+      "name": "Dimetrius",
+      "in_file": "/tmp/council/kimi.in",
+      "out_file": "/tmp/council/kimi.out",
+      "personal_prompt": "/home/jwt/Code/council/agents/kimi_identity.txt"
     }
   ]
 }
