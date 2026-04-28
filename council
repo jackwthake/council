@@ -9,7 +9,7 @@ echo "" > /tmp/council/gemini.out
 
 # start agents
 ./agents/minimax_agent/target/debug/minimax_agent &
-./agents/gemini_flash_agent/target/debug/gemini_flash_agent &
+python3 ./agents/gemini_flash_agent/agent.py &
 
 # start main process
 ./target/debug/council

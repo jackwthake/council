@@ -96,7 +96,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     if let Ok(contents) = fs::read_to_string(&out_file) {
                         if contents.len() > last_len {
                             let diff = contents[last_len..].trim().to_string();
-                            if !diff.is_empty() {
+                            if !diff.is_empty() && diff.to_ascii_lowercase() != "nothing" {
                                 let formatted_msg = format!("{} > {}", agent_name, diff);
                                 app.messages.push(formatted_msg.clone());
 
