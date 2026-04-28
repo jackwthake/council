@@ -3,9 +3,13 @@
 # clear context
 echo "" > /tmp/council/minimax.in
 echo "" > /tmp/council/minimax.out
+echo "" > /tmp/council/gemini.in
+echo "" > /tmp/council/gemini.out
+
 
 # start agents
 ./agents/minimax_agent/target/debug/minimax_agent &
+./agents/gemini_flash_agent/target/debug/gemini_flash_agent &
 
 # start main process
 ./target/debug/council

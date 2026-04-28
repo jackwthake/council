@@ -1,5 +1,5 @@
 [package]
-name = "minimax_agent"
+name = "gemini_flash_agent"
 version = "0.1.0"
 edition = "2024"
 

@@ -1,0 +1,16 @@
+{
+  "agents": [
+    {
+      "name": "Michail",
+      "in_file": "/tmp/council/minimax.in",
+      "out_file": "/tmp/council/minimax.out",
+      "personal_prompt": "/home/jwt/Code/council/agents/minimax_identity.txt"
+    },
+    {
+      "name": "Pericles",
+      "in_file": "/tmp/council/gemini.in",
+      "out_file": "/tmp/council/gemini.out",
+      "personal_prompt": "/home/jwt/Code/council/agents/gemini_identity.txt"
+    }
+  ]
+}

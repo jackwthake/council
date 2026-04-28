@@ -19,7 +19,7 @@ struct AgentConfig {
     personal_prompt: String,
 }
 
-const MODEL: &str = "minimax-m2.7:cloud";
+const MODEL: &str = "gemini-3-flash-preview:cloud";
 const MASTER_PROMPT_PATH: &str = "/home/jwt/Code/council/agents/system.txt";
 
 fn get_api_key() -> String {
