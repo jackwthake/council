@@ -8,6 +8,7 @@ use tokio::time::{sleep, Duration};
 const INPUT_FNAME: &str = "/tmp/council/minimax.in";
 const OUTPUT_FNAME: &str = "/tmp/council/minimax.out";
 const MODEL: &str = "minimax-m2.7:cloud";
+const SYSTEM_PROMPT: &str = "/home/jwt/Code/council/agents/system.txt";
 
 fn get_api_key() -> String {
     fs::read_to_string("/home/jwt/Code/council/agents/ollama.key")
@@ -26,7 +27,7 @@ async fn api_call(client: &Client, key: &str, msg : &str) -> String {
             "messages": [
                 {
                 "role": "system",
-                "content": fs::read_to_string("/home/jwt/Code/council/agents/system.txt")
+                "content": fs::read_to_string(SYSTEM_PROMPT)
                                 .expect("Failed to read system file")
                                 .trim()
                                 .to_string()
